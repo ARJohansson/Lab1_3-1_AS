@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/subTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="112dp"
+        android:text="@string/invoice_sub_total"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/discount_peercent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/subTotal"
+        app:layout_constraintTop_toBottomOf="@+id/subTotal" />
+
+    <TextView
+        android:id="@+id/dAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/discount_amount"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dPercent"
+        app:layout_constraintTop_toBottomOf="@+id/dPercent" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/total_cost"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/dAmount"
+        app:layout_constraintTop_toBottomOf="@+id/dAmount" />
+
+    <TextView
+        android:id="@+id/dP10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="128dp"
+        android:text="@string/discount_percent_equals"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dPercent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dPercent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dA15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/discount_amount_equals"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/dP10"
+        app:layout_constraintTop_toBottomOf="@+id/dP10" />
+
+    <TextView
+        android:id="@+id/t135"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/total_amount_equals"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/dA15"
+        app:layout_constraintTop_toBottomOf="@+id/dA15" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="143dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/user_subtotal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/dP10"
+        app:layout_constraintStart_toStartOf="@+id/dP10" />
+</androidx.constraintlayout.widget.ConstraintLayout>
