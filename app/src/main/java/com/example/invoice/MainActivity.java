@@ -17,7 +17,7 @@ import android.widget.TextView.OnEditorActionListener;
 
 // Import SharedPreferences class and its Editor class
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+//import android.content.SharedPreferences.Editor;
 
 public class MainActivity extends AppCompatActivity
 implements OnEditorActionListener {
@@ -39,10 +39,10 @@ implements OnEditorActionListener {
         setContentView(R.layout.activity_main);
 
         // Getting references to the data displaying widgets
-        invoiceAmount = (EditText) findViewById(R.id.editText);
-        discountPercent = (TextView) findViewById(R.id.dP10);
-        discountAmount = (TextView) findViewById(R.id.dA15);
-        totalDiscount = (TextView) findViewById(R.id.t135);
+        invoiceAmount = (EditText) findViewById(R.id.subtotalEditText);
+        discountPercent = (TextView) findViewById(R.id.dP10TextView);
+        discountAmount = (TextView) findViewById(R.id.dA15TextView);
+        totalDiscount = (TextView) findViewById(R.id.t135TextView);
 
         // Sets the listener
         invoiceAmount.setOnEditorActionListener(this);
@@ -50,26 +50,26 @@ implements OnEditorActionListener {
         // Get SharedPreferences object
         savedValues= getSharedPreferences("SavedValues", MODE_PRIVATE);
     }
-
+/*
     @Override
     public void onPause() {
+        super.onPause();
         // save the instance variables
         Editor editor = savedValues.edit();
         editor.putString("invoiceSubtotal", invoiceSubtotal);
         editor.commit();
 
-        super.onPause();
-    }
+    }*/
 
     @Override
     public void onResume() {
         super.onResume();
 
         // get the instance variables
-        invoiceSubtotal = savedValues.getString("invoiceSubtotal", "");
+//        invoiceSubtotal = savedValues.getString("invoiceSubtotal", "");
 
         // set the subtotal amount
-        invoiceAmount.setText(invoiceSubtotal);
+//       invoiceAmount.setText(invoiceSubtotal);
 
         // calls the calculateAndDisplay method
         calculateAndDisplay();
