@@ -17,7 +17,7 @@ import android.widget.TextView.OnEditorActionListener;
 
 // Import SharedPreferences class and its Editor class
 import android.content.SharedPreferences;
-//import android.content.SharedPreferences.Editor;
+import android.content.SharedPreferences.Editor;
 
 public class MainActivity extends AppCompatActivity
 implements OnEditorActionListener {
@@ -50,7 +50,7 @@ implements OnEditorActionListener {
         // Get SharedPreferences object
         savedValues= getSharedPreferences("SavedValues", MODE_PRIVATE);
     }
-/*
+
     @Override
     public void onPause() {
         super.onPause();
@@ -59,17 +59,17 @@ implements OnEditorActionListener {
         editor.putString("invoiceSubtotal", invoiceSubtotal);
         editor.commit();
 
-    }*/
+    }
 
     @Override
     public void onResume() {
         super.onResume();
 
         // get the instance variables
-//        invoiceSubtotal = savedValues.getString("invoiceSubtotal", "");
+        invoiceSubtotal = savedValues.getString("invoiceSubtotal", "");
 
         // set the subtotal amount
-//       invoiceAmount.setText(invoiceSubtotal);
+       invoiceAmount.setText(invoiceSubtotal);
 
         // calls the calculateAndDisplay method
         calculateAndDisplay();
@@ -88,6 +88,7 @@ implements OnEditorActionListener {
             else {
                 subTotal = Float.parseFloat(subTotalString);
             }
+            invoiceSubtotal = subTotalString;
 
             /* Calculate discount percent: 20% on greater than or equal to $200
              * 10% on greater than or equal to $100
@@ -118,7 +119,8 @@ implements OnEditorActionListener {
 
     @Override
     public boolean onEditorAction(TextView v, int actionID, KeyEvent event) {
-        if (actionID == EditorInfo.IME_ACTION_DONE )
+        if (actionID == EditorInfo.IME_ACTION_DONE ||
+            actionID == EditorInfo.IME_ACTION_UNSPECIFIED )
         {
             calculateAndDisplay();
         }
